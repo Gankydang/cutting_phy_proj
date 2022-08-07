@@ -13,8 +13,11 @@ def on_forever(a_pressed, b_pressed):
             while distance2 < 10:
                 servos.P0.run(50)
                 distance2 = grove.measure_in_centimeters(DigitalPin.P2)
+                pins.digital_write_pin(DigitalPin.P1, 1)
+            
             servos.P0.stop()
-        
+            pins.digital_write_pin(DigitalPin.P1, 0)
+
         elif b_pressed:
             basic.clear_screen()
             basic.show_icon(IconNames.NO)
